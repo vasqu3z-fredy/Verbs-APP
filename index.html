@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Práctica de Verbos Irregulares en Inglés</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app">
+        <header class="app-header">
+            <h1>Práctica de Verbos Irregulares</h1>
+            <p>Completa el pasado simple y el participio pasado. Al finalizar verá su nota promedio.</p>
+        </header>
+
+        <main class="app-main">
+            <!-- Configuración inicial -->
+            <section class="config">
+                <label for="questionCount">
+                    Número de verbos a practicar:
+                </label>
+                <input
+                    type="number"
+                    id="questionCount"
+                    min="5"
+                    max="50"
+                    value="10"
+                />
+
+                <button id="startBtn" class="btn primary">
+                    Comenzar quiz
+                </button>
+            </section>
+
+            <!-- Sección del quiz -->
+            <section id="quizSection" class="quiz hidden">
+                <form id="quizForm">
+                    <div id="questionsContainer" class="questions-container">
+                        <!-- Aquí se generan las preguntas dinámicamente -->
+                    </div>
+
+                    <div class="actions">
+                        <button type="submit" id="checkBtn" class="btn success">
+                            Corregir respuestas
+                        </button>
+                        <button type="button" id="resetBtn" class="btn secondary">
+                            Reiniciar
+                        </button>
+                    </div>
+                </form>
+
+                <div id="result" class="result-panel"></div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <small>
+                Desarollado por Alex-ander Vásquez. 
+                 <p>All rights reserved </p>P
+            </small>
+           
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
