@@ -90,12 +90,18 @@ body {
     font-weight: 500;
 }
 
-.config input[type="number"] {
-    width: 90px;
+.config input[type="number"],
+.config select {
+    min-height: 34px;
     padding: 6px 8px;
     border-radius: 6px;
     border: 1px solid #ced4da;
-    font-size: 0.95rem;
+    background: #fff;
+    font: inherit;
+}
+
+.config input[type="number"] {
+    width: 90px;
 }
 
 /* ------------ Botones ------------ */

@@ -136,10 +136,217 @@ const VERBS = [
     { base: "write", past: "wrote", participle: "written", meaning: "escribir" }
 ];
 
+// Verbos regulares compartidos para la práctica de pasado simple.
+const REGULAR_VERBS = [
+    ["abandonar", "abandon", "abandoned"],
+    ["abolir", "abolish", "abolished"],
+    ["abrir", "open", "opened"],
+    ["absorber", "absorb", "absorbed"],
+    ["abusar", "abuse", "abused"],
+    ["acceder", "accede", "acceded"],
+    ["acentuar", "accent", "accented"],
+    ["acercarse", "approach", "approached"],
+    ["aconsejar", "advise", "advised"],
+    ["acordar", "agree", "agreed"],
+    ["actuar", "act", "acted"],
+    ["acusar", "accuse", "accused"],
+    ["adivinar", "guess", "guessed"],
+    ["administrar", "manage", "managed"],
+    ["admirar", "admire", "admired"],
+    ["admitir", "admit", "admitted"],
+    ["adorar", "adore", "adored"],
+    ["adquirir", "acquire", "acquired"],
+    ["agradecer", "thank", "thanked"],
+    ["añadir / sumar", "add", "added"],
+    ["anunciar", "advertise", "advertised"],
+    ["anunciar", "announce", "announced"],
+    ["aparcar", "park", "parked"],
+    ["aparecer", "appear", "appeared"],
+    ["aprobar", "pass", "passed"],
+    ["apurarse", "hurry", "hurried"],
+    ["archivar", "file", "filed"],
+    ["arreglar", "arrange", "arranged"],
+    ["arreglar", "fix", "fixed"],
+    ["arrestar", "arrest", "arrested"],
+    ["asegurar", "assure", "assured"],
+    ["asistir", "assist", "assisted"],
+    ["atacar", "attack", "attacked"],
+    ["atar", "tie", "tied"],
+    ["avanzar", "advance", "advanced"],
+    ["ayudar", "help", "helped"],
+    ["bailar", "dance", "danced"],
+    ["bendecir", "bless", "blessed"],
+    ["besar", "kiss", "kissed"],
+    ["buscar", "search", "searched"],
+    ["calentar", "warm", "warmed"],
+    ["cambiar", "change", "changed"],
+    ["caminar", "walk", "walked"],
+    ["cargar", "charge", "charged"],
+    ["casarse", "marry", "married"],
+    ["castigar", "punish", "punished"],
+    ["cepillar", "brush", "brushed"],
+    ["cerrar", "close", "closed"],
+    ["chocar", "crash", "crashed"],
+    ["cobrar", "cash", "cashed"],
+    ["cocinar", "cook", "cooked"],
+    ["combinar", "combine", "combined"],
+    ["comenzar", "start", "started"],
+    ["cometer / comprometerse", "commit", "committed"],
+    ["comparar", "compare", "compared"],
+    ["complacer", "please", "pleased"],
+    ["completar", "complete", "completed"],
+    ["componer", "compose", "composed"],
+    ["comportarse", "behave", "behaved"],
+    ["comprobar", "check", "checked"],
+    ["comprometer / acoplar", "engage", "engaged"],
+    ["confiar", "trust", "trusted"],
+    ["considerar", "consider", "considered"],
+    ["consistir", "consist", "consisted"],
+    ["contar", "count", "counted"],
+    ["contener", "contain", "contained"],
+    ["continuar", "continue", "continued"],
+    ["copiar", "copy", "copied"],
+    ["coronar", "crown", "crowned"],
+    ["creer", "believe", "believed"],
+    ["cruzar", "cross", "crossed"],
+    ["cubrir", "cover", "covered"],
+    ["cuidar", "care", "cared"],
+    ["culpar", "blame", "blamed"],
+    ["declarar", "declare", "declared"],
+    ["dedicar", "devote", "devoted"],
+    ["dejar caer", "drop", "dropped"],
+    ["deletrear", "spell", "spelled/spelt"],
+    ["demorar / retrasar", "delay", "delayed"],
+    ["denegar", "deny", "denied"],
+    ["desear", "hope", "hoped"],
+    ["desear", "wish", "wished"],
+    ["destruir", "destroy", "destroyed"],
+    ["detener", "stop", "stopped"],
+    ["dirigirse", "address", "addressed"],
+    ["disculparse", "apologize", "apologized"],
+    ["disfrutar", "enjoy", "enjoyed"],
+    ["disparar", "fire", "fired"],
+    ["empujar", "push", "pushed"],
+    ["entregar", "deliver", "delivered"],
+    ["entrenar", "train", "trained"],
+    ["entretener", "amuse", "amused"],
+    ["enumerar", "number", "numbered"],
+    ["envidiar", "envy", "envied"],
+    ["equilibrar", "balance", "balanced"],
+    ["escalar", "climb", "climbed"],
+    ["esperar", "wait", "waited"],
+    ["estudiar", "study", "studied"],
+    ["evitar", "avoid", "avoided"],
+    ["exclamar", "exclaim", "exclaimed"],
+    ["explicar", "explain", "explained"],
+    ["expresar", "express", "expressed"],
+    ["extrañar", "miss", "missed"],
+    ["firmar", "sign", "signed"],
+    ["fracasar", "fail", "failed"],
+    ["freír", "fry", "fried"],
+    ["fumar", "smoke", "smoked"],
+    ["ganar", "gain", "gained"],
+    ["girar", "turn", "turned"],
+    ["gustar", "like", "liked"],
+    ["hablar", "talk", "talked"],
+    ["herir", "wound", "wounded"],
+    ["imaginar", "imagine", "imagined"],
+    ["intentar", "attempt", "attempted"],
+    ["intentar", "try", "tried"],
+    ["jugar", "play", "played"],
+    ["juzgar", "judge", "judged"],
+    ["lavar", "wash", "washed"],
+    ["levantar", "raise", "raised"],
+    ["limpiar", "clean", "cleaned"],
+    ["llamar", "call", "called"],
+    ["llegar", "arrive", "arrived"],
+    ["llenar", "fill", "filled"],
+    ["llevar", "carry", "carried"],
+    ["llevar a cabo", "perform", "performed"],
+    ["llorar", "cry", "cried"],
+    ["llover", "rain", "rained"],
+    ["mandar", "command", "commanded"],
+    ["mantener", "maintain", "maintained"],
+    ["marcar", "mark", "marked"],
+    ["masajear", "massage", "massaged"],
+    ["matar", "kill", "killed"],
+    ["medir", "measure", "measured"],
+    ["morir", "die", "died"],
+    ["mirar", "look", "looked"],
+    ["molestar", "annoy", "annoyed"],
+    ["mover", "move", "moved"],
+    ["navegar", "sail", "sailed"],
+    ["nombrar", "name", "named"],
+    ["notar", "note", "noted"],
+    ["notificar", "notice", "noticed"],
+    ["observar", "observe", "observed"],
+    ["observar (ver)", "watch", "watched"],
+    ["ofrecer", "offer", "offered"],
+    ["ordenar", "order", "ordered"],
+    ["permanecer", "stay", "stayed"],
+    ["permitir", "allow", "allowed"],
+    ["pertenecer", "belong", "belonged"],
+    ["pesar", "weigh", "weighed"],
+    ["pescar", "fish", "fished"],
+    ["planificar", "plan", "planned"],
+    ["practicar", "practice", "practiced"],
+    ["preferir", "prefer", "preferred"],
+    ["preguntar", "ask", "asked"],
+    ["preocuparse", "worry", "worried"],
+    ["preparar", "prepare", "prepared"],
+    ["probar", "taste", "tasted"],
+    ["prometer", "promise", "promised"],
+    ["pronunciar", "pronounce", "pronounced"],
+    ["querer", "want", "wanted"],
+    ["rechazar", "refuse", "refused"],
+    ["recibir", "receive", "received"],
+    ["reclamar", "claim", "claimed"],
+    ["recoger", "pick", "picked"],
+    ["recolectar", "collect", "collected"],
+    ["recordar", "remember", "remembered"],
+    ["regar", "water", "watered"],
+    ["registrar", "register", "registered"],
+    ["reír", "laugh", "laughed"],
+    ["reparar", "repair", "repaired"],
+    ["repetir", "repeat", "repeated"],
+    ["reportar", "report", "reported"],
+    ["requerir", "require", "required"],
+    ["reservar", "reserve", "reserved"],
+    ["resolver", "resolve", "resolved"],
+    ["respirar", "breathe", "breathed"],
+    ["responder", "answer", "answered"],
+    ["rezar", "pray", "prayed"],
+    ["salvar", "save", "saved"],
+    ["secar", "dry", "dried"],
+    ["seguir", "follow", "followed"],
+    ["servir", "serve", "served"],
+    ["silbar", "whistle", "whistled"],
+    ["solicitar", "request", "requested"],
+    ["sonar", "sound", "sounded"],
+    ["sonreír", "smile", "smiled"],
+    ["sorprender", "surprise", "surprised"],
+    ["suceder", "happen", "happened"],
+    ["sufrir", "suffer", "suffered"],
+    ["suplicar", "beg", "begged"],
+    ["telefonear", "phone", "phoned"],
+    ["terminar", "finish", "finished"],
+    ["testear", "test", "tested"],
+    ["tocar", "touch", "touched"],
+    ["trabajar", "work", "worked"],
+    ["traducir", "translate", "translated"],
+    ["unir", "unite", "united"],
+    ["usar", "use", "used"],
+    ["variar", "vary", "varied"],
+    ["vestir", "dress", "dressed"],
+    ["viajar", "travel", "traveled"],
+    ["visitar", "visit", "visited"]
+].map(([meaning, base, past]) => ({ meaning, base, past }));
+
 // =====================
 // Referencias al DOM
 // =====================
 const questionCountInput = document.getElementById("questionCount");
+const verbTypeInput = document.getElementById("verbType");
 const startBtn = document.getElementById("startBtn");
 const quizSection = document.getElementById("quizSection");
 const quizForm = document.getElementById("quizForm");
@@ -147,9 +354,12 @@ const questionsContainer = document.getElementById("questionsContainer");
 const resultPanel = document.getElementById("result");
 const resetBtn = document.getElementById("resetBtn");
 const checkBtn = document.getElementById("checkBtn");
+const continueBtn = document.getElementById("continueBtn");
 
 // Estado actual del quiz
 let currentQuestions = [];
+let currentVerbType = "irregular";
+let seenVerbBases = new Set();
 
 // =====================
 // Utilidades
@@ -170,6 +380,8 @@ function normalize(str) {
     return str
         .toLowerCase()
         .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
         .replace(/[\s-]+/g, "");
 }
 
@@ -204,7 +416,9 @@ function showResult(message, type = "success") {
 // Lógica principal del quiz
 // =====================
 
-function createQuiz() {
+function createQuiz(continueLearning = false) {
+    checkBtn.disabled = true;
+    continueBtn.disabled = true;
     clearResult();
     questionsContainer.innerHTML = "";
 
@@ -215,9 +429,41 @@ function createQuiz() {
         return;
     }
 
-    const questionCount = Math.min(requested, VERBS.length);
+    if (!continueLearning) {
+        currentVerbType = verbTypeInput.value;
+        seenVerbBases.clear();
+    } else {
+        verbTypeInput.value = currentVerbType;
+    }
 
-    currentQuestions = shuffle(VERBS).slice(0, questionCount);
+    const verbs = currentVerbType === "regular" ? REGULAR_VERBS : VERBS;
+    const hasParticiple = currentVerbType === "irregular";
+    const questionCount = Math.min(requested, verbs.length);
+
+    let repeatedCount = 0;
+    let newCount = questionCount;
+
+    if (continueLearning) {
+        const previouslySeen = verbs.filter(verb => seenVerbBases.has(verb.base));
+        const unseen = verbs.filter(verb => !seenVerbBases.has(verb.base));
+        const repeatTarget = Math.round(questionCount * 0.3);
+        const repeatedVerbs = shuffle(previouslySeen).slice(0, repeatTarget);
+        const newVerbs = shuffle(unseen).slice(0, questionCount - repeatedVerbs.length);
+        const selectedBases = new Set(
+            [...repeatedVerbs, ...newVerbs].map(verb => verb.base)
+        );
+        const remainingCount = questionCount - repeatedVerbs.length - newVerbs.length;
+        const additionalVerbs = shuffle(verbs.filter(verb => !selectedBases.has(verb.base)))
+            .slice(0, remainingCount);
+
+        currentQuestions = shuffle([...repeatedVerbs, ...newVerbs, ...additionalVerbs]);
+        repeatedCount = repeatedVerbs.length + additionalVerbs.length;
+        newCount = newVerbs.length;
+    } else {
+        currentQuestions = shuffle(verbs).slice(0, questionCount);
+    }
+
+    currentQuestions.forEach(verb => seenVerbBases.add(verb.base));
 
     const table = document.createElement("table");
     table.className = "questions-table";
@@ -227,9 +473,9 @@ function createQuiz() {
         <tr>
             <th>#</th>
             <th>Infinitivo</th>
-            <th>Significado</th>
+            ${hasParticiple ? "<th>Significado</th>" : "<th>Significado en español</th>"}
             <th>Pasado simple</th>
-            <th>Participio pasado</th>
+            ${hasParticiple ? "<th>Participio pasado</th>" : ""}
         </tr>
     `;
 
@@ -239,12 +485,26 @@ function createQuiz() {
         const tr = document.createElement("tr");
         tr.dataset.base = verb.base;
         tr.dataset.past = verb.past;
-        tr.dataset.participle = verb.participle;
+        if (hasParticiple) {
+            tr.dataset.participle = verb.participle;
+        } else {
+            tr.dataset.meaning = verb.meaning;
+        }
 
         tr.innerHTML = `
             <td>${index + 1}</td>
             <td><strong>${verb.base}</strong></td>
-            <td>${verb.meaning || ""}</td>
+            ${hasParticiple
+                ? `<td>${verb.meaning || ""}</td>`
+                : `<td class="cell-meaning">
+                    <input
+                        type="text"
+                        name="meaning-${index}"
+                        autocomplete="off"
+                        placeholder="Significado en español"
+                    />
+                    <div class="correct-answer"></div>
+                </td>`}
             <td class="cell-past">
                 <input
                     type="text"
@@ -254,6 +514,7 @@ function createQuiz() {
                 />
                 <div class="correct-answer"></div>
             </td>
+            ${hasParticiple ? `
             <td class="cell-participle">
                 <input
                     type="text"
@@ -262,7 +523,7 @@ function createQuiz() {
                     placeholder="Participio pasado"
                 />
                 <div class="correct-answer"></div>
-            </td>
+            </td>` : ""}
         `;
 
         tbody.appendChild(tr);
@@ -274,6 +535,14 @@ function createQuiz() {
 
     quizSection.classList.remove("hidden");
     checkBtn.disabled = false;
+    continueBtn.disabled = true;
+
+    if (continueLearning) {
+        showResult(
+            `Esta ronda incluye ${repeatedCount} verbo(s) para repasar y ${newCount} nuevo(s).`,
+            "warning"
+        );
+    }
 }
 
 function handleSubmit(event) {
@@ -284,6 +553,7 @@ function handleSubmit(event) {
         return;
     }
 
+    const hasParticiple = currentVerbType === "irregular";
     let totalFields = currentQuestions.length * 2;
     let correctFields = 0;
 
@@ -291,21 +561,27 @@ function handleSubmit(event) {
 
     rows.forEach((row) => {
         const correctPast = row.dataset.past;
-        const correctParticiple = row.dataset.participle;
-
         const pastCell = row.querySelector(".cell-past");
-        const participleCell = row.querySelector(".cell-participle");
-
         const pastInput = pastCell.querySelector("input");
-        const participleInput = participleCell.querySelector("input");
-
         const pastAnswerDiv = pastCell.querySelector(".correct-answer");
-        const participleAnswerDiv = participleCell.querySelector(".correct-answer");
-
         pastCell.classList.remove("correct", "incorrect");
-        participleCell.classList.remove("correct", "incorrect");
         pastAnswerDiv.textContent = "";
-        participleAnswerDiv.textContent = "";
+
+        if (!hasParticiple) {
+            const meaningCell = row.querySelector(".cell-meaning");
+            const meaningInput = meaningCell.querySelector("input");
+            const meaningAnswerDiv = meaningCell.querySelector(".correct-answer");
+            meaningCell.classList.remove("correct", "incorrect");
+            meaningAnswerDiv.textContent = "";
+
+            if (isCorrectAnswer(meaningInput.value, row.dataset.meaning)) {
+                correctFields++;
+                meaningCell.classList.add("correct");
+            } else {
+                meaningCell.classList.add("incorrect");
+                meaningAnswerDiv.textContent = `✔ ${row.dataset.meaning}`;
+            }
+        }
 
         if (isCorrectAnswer(pastInput.value, correctPast)) {
             correctFields++;
@@ -315,12 +591,22 @@ function handleSubmit(event) {
             pastAnswerDiv.textContent = `✔ ${correctPast}`;
         }
 
-        if (isCorrectAnswer(participleInput.value, correctParticiple)) {
-            correctFields++;
-            participleCell.classList.add("correct");
-        } else {
-            participleCell.classList.add("incorrect");
-            participleAnswerDiv.textContent = `✔ ${correctParticiple}`;
+        if (hasParticiple) {
+            const correctParticiple = row.dataset.participle;
+            const participleCell = row.querySelector(".cell-participle");
+            const participleInput = participleCell.querySelector("input");
+            const participleAnswerDiv = participleCell.querySelector(".correct-answer");
+
+            participleCell.classList.remove("correct", "incorrect");
+            participleAnswerDiv.textContent = "";
+
+            if (isCorrectAnswer(participleInput.value, correctParticiple)) {
+                correctFields++;
+                participleCell.classList.add("correct");
+            } else {
+                participleCell.classList.add("incorrect");
+                participleAnswerDiv.textContent = `✔ ${correctParticiple}`;
+            }
         }
     });
 
@@ -341,7 +627,7 @@ function handleSubmit(event) {
     }
 
     const message = [
-        `Respuestas correctas: ${correctFields} de ${totalFields} formas verbales.`,
+        `Respuestas correctas: ${correctFields} de ${totalFields} respuestas.`,
         `Porcentaje: ${percentage.toFixed(1)}%`,
         `Nota promedio: ${grade.toFixed(2)} / 10`,
         messageExtra
@@ -349,6 +635,7 @@ function handleSubmit(event) {
 
     showResult(message, type);
     checkBtn.disabled = true;
+    continueBtn.disabled = false;
 }
 
 function handleReset() {
@@ -361,4 +648,5 @@ function handleReset() {
 startBtn.addEventListener("click", createQuiz);
 quizForm.addEventListener("submit", handleSubmit);
 resetBtn.addEventListener("click", handleReset);
+continueBtn.addEventListener("click", () => createQuiz(true));
 ``
