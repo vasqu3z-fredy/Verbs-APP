@@ -645,7 +645,7 @@ function handleReset() {
 // =====================
 // Eventos
 // =====================
-startBtn.addEventListener("click", createQuiz);
+startBtn.addEventListener("click", () => createQuiz(false));
 quizForm.addEventListener("submit", handleSubmit);
 resetBtn.addEventListener("click", handleReset);
 continueBtn.addEventListener("click", () => createQuiz(true));

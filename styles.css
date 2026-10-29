@@ -25,10 +25,11 @@ body {
     background: var(--bg-gradient);
     color: var(--text-main);
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    align-items: flex-start;
+    padding: clamp(12px, 3vw, 28px);
 }
 
 /* ------------ Layout de la app ------------ */
@@ -207,10 +208,18 @@ body {
 
 .questions-table input[type="text"] {
     width: 100%;
-    padding: 4px 6px;
+    min-height: 40px;
+    padding: 8px 10px;
     border-radius: 4px;
     border: 1px solid #ced4da;
     font-size: 0.9rem;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(69, 123, 157, 0.45);
+    outline-offset: 2px;
 }
 
 /* Colores para correcto / incorrecto */
@@ -270,23 +279,188 @@ body {
 }
 
 /* ------------ Responsivo ------------ */
-@media (max-width: 640px) {
+@media (max-width: 720px) {
     .app {
-        padding: 16px 12px;
+        padding: 20px 16px 14px;
     }
 
     .app-header h1 {
-        font-size: 1.4rem;
+        font-size: clamp(1.4rem, 5vw, 1.75rem);
     }
 
     .config {
-        flex-direction: column;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(120px, 0.6fr);
+        align-items: center;
+        gap: 10px;
+    }
+
+    .config label {
+        grid-column: 1;
+    }
+
+    .config select,
+    .config input[type="number"] {
+        grid-column: 2;
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .config #startBtn {
+        grid-column: 1 / -1;
+        min-height: 46px;
+    }
+
+    .quiz {
+        padding: 12px;
+    }
+
+    .questions-container {
+        overflow: visible;
+    }
+
+    .questions-table,
+    .questions-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .questions-table thead {
+        display: none;
+    }
+
+    .questions-table tbody tr {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 12px;
+        padding: 12px;
+        border: 1px solid #e1e4e8;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 3px 10px rgba(29, 53, 87, 0.07);
+    }
+
+    .questions-table tbody tr:nth-child(even) {
+        background: #fff;
     }
 
     .questions-table th,
     .questions-table td {
-        font-size: 0.8rem;
-        padding: 6px;
+        min-width: 0;
+        border: 0;
+        padding: 0;
+        font-size: 0.9rem;
+    }
+
+    .questions-table td:first-child {
+        display: none;
+    }
+
+    .questions-table td:nth-child(2) {
+        grid-column: 1 / -1;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #e1e4e8;
+        font-size: 1.05rem;
+    }
+
+    .questions-table td:nth-child(n + 3) {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .questions-table td:nth-child(3)::before {
+        content: "Significado";
+    }
+
+    .questions-table td:nth-child(4)::before {
+        content: "Pasado simple";
+    }
+
+    .questions-table td:nth-child(5)::before {
+        content: "Participio pasado";
+    }
+
+    .questions-table td:nth-child(n + 3)::before {
+        color: var(--text-muted);
+        font-size: 0.78rem;
+        font-weight: 600;
+    }
+
+    .questions-table input[type="text"] {
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    .correct-answer {
+        overflow-wrap: anywhere;
+    }
+
+    .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .actions .btn {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    .result-panel {
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 420px) {
+    body {
+        padding: 8px;
+    }
+
+    .app {
+        border-radius: 12px;
+        padding: 16px 10px 12px;
+        gap: 12px;
+    }
+
+    .app-header p {
+        font-size: 0.88rem;
+        line-height: 1.45;
+    }
+
+    .config {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 12px;
+    }
+
+    .config label,
+    .config select,
+    .config input[type="number"],
+    .config #startBtn {
+        grid-column: 1;
+    }
+
+    .quiz {
+        padding: 8px;
+    }
+
+    .questions-table tbody tr {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .questions-table td:nth-child(2),
+    .questions-table td:nth-child(n + 3) {
+        grid-column: 1;
+    }
+
+    .questions-table td:nth-child(2) {
+        font-size: 1.1rem;
+    }
+
+    .questions-table td:nth-child(n + 3)::before {
+        font-size: 0.82rem;
     }
 }
